@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 1.5 }); // Wait for loader
+      const tl = gsap.timeline({ delay: 3 }); // Wait for loader (2.5s) + curtain animation (0.5s)
 
       // Initial Reveal of Text Lines
       const lines = gsap.utils.toArray('.hero-line');
