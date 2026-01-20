@@ -9,33 +9,52 @@ const Hero: React.FC = () => {
   const textRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 3 }); // Wait for loader (2.5s) + curtain animation (0.5s)
 
       // Initial Reveal of Text Lines
       const lines = gsap.utils.toArray('.hero-line');
-      tl.fromTo(lines, 
-        { yPercent: 100, autoAlpha: 0 },
-        { 
-          yPercent: 0, 
-          autoAlpha: 1, 
-          duration: 1.2, 
-          stagger: 0.15, 
-          ease: "power4.out" 
-        }
-      );
+      
+      // Mobile: Simpler, faster animation
+      if (isMobile) {
+        tl.fromTo(lines, 
+          { autoAlpha: 0 },
+          { 
+            autoAlpha: 1, 
+            duration: 0.8, 
+            stagger: 0.1, 
+            ease: "power2.out" 
+          }
+        );
+      } else {
+        // Desktop: Full animation
+        tl.fromTo(lines, 
+          { yPercent: 100, autoAlpha: 0 },
+          { 
+            yPercent: 0, 
+            autoAlpha: 1, 
+            duration: 1.2, 
+            stagger: 0.15, 
+            ease: "power4.out" 
+          }
+        );
+      }
 
-      // Scroll Parallax for Text
-      gsap.to(textRef.current, {
-        yPercent: 50,
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true
-        }
-      });
+      // Scroll Parallax for Text - Disable on mobile for performance
+      if (!isMobile) {
+        gsap.to(textRef.current, {
+          yPercent: 50,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+      }
 
     }, containerRef);
 

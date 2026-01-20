@@ -8,6 +8,8 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
   const textRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         onComplete: onComplete
@@ -30,15 +32,22 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
         ease: "power2.in"
       });
 
-      // Animate columns sliding to bottom-right - optimized for mobile
-      tl.to(columnsRef.current.slice().reverse(), {
-        height: 0,
-        duration: 0.8,
-        stagger: 0.06,
-        ease: "power3.inOut",
-        force3D: true,
-        willChange: "height"
-      }, "-=0.2");
+      // Mobile: Simple fade out, Desktop: Curtain animation
+      if (isMobile) {
+        tl.to(columnsRef.current, {
+          autoAlpha: 0,
+          duration: 0.5,
+          ease: "power2.inOut"
+        }, "-=0.2");
+      } else {
+        tl.to(columnsRef.current.slice().reverse(), {
+          height: 0,
+          duration: 0.8,
+          stagger: 0.06,
+          ease: "power3.inOut",
+          force3D: true
+        }, "-=0.2");
+      }
       
       // Fade out container
       tl.to(containerRef.current, {
@@ -71,25 +80,22 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
         </p>
       </div>
 
-      {/* Curtain Columns - Fewer columns on mobile for better performance */}
+      {/* Curtain Columns */}
       <div className="w-full h-full grid grid-cols-3 md:grid-cols-5 max-w-[95%] mx-auto">
-        {[...Array(5)].map((_, i) => (
+        {[...Array(3)].map((_, i) => (
           <div 
             key={i}
             ref={(el) => { if (el) columnsRef.current[i] = el; }}
-            className="bg-foreground h-full w-full relative origin-bottom will-change-[height] transform-gpu"
-            style={{ 
-              borderLeft: '1px solid #111',
-              display: i >= 3 ? 'none' : 'block'
-            }}
+            className="bg-foreground h-full w-full relative origin-bottom transform-gpu"
+            style={{ borderLeft: '1px solid #111' }}
           />
         ))}
         {/* Desktop only columns */}
-        <div className="hidden md:block bg-foreground h-full w-full relative origin-bottom will-change-[height] transform-gpu" 
+        <div className="hidden md:block bg-foreground h-full w-full relative origin-bottom transform-gpu" 
              style={{ borderLeft: '1px solid #111' }}
              ref={(el) => { if (el) columnsRef.current[3] = el; }} 
         />
-        <div className="hidden md:block bg-foreground h-full w-full relative origin-bottom will-change-[height] transform-gpu" 
+        <div className="hidden md:block bg-foreground h-full w-full relative origin-bottom transform-gpu" 
              style={{ borderLeft: '1px solid #111' }}
              ref={(el) => { if (el) columnsRef.current[4] = el; }} 
         />
