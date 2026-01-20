@@ -25,9 +25,9 @@ const Hero: React.FC = () => {
         }
       );
 
-      // Scroll Parallax for Text - fade out instead of moving down
+      // Scroll Parallax for Text
       gsap.to(textRef.current, {
-        autoAlpha: 0,
+        yPercent: 50,
         ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,
