@@ -80,9 +80,12 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
         </p>
       </div>
 
-      {/* Curtain Columns */}
-      <div className="w-full h-full grid grid-cols-3 md:grid-cols-5 max-w-[95%] mx-auto">
-        {[...Array(3)].map((_, i) => (
+      {/* Mobile: Simple background fade */}
+      <div className="md:hidden w-full h-full bg-foreground" ref={(el) => { if (el) columnsRef.current[0] = el; }} />
+
+      {/* Desktop: Curtain Columns */}
+      <div className="hidden md:grid w-full h-full grid-cols-5 max-w-[95%] mx-auto">
+        {[...Array(5)].map((_, i) => (
           <div 
             key={i}
             ref={(el) => { if (el) columnsRef.current[i] = el; }}
@@ -90,15 +93,6 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
             style={{ borderLeft: '1px solid #111' }}
           />
         ))}
-        {/* Desktop only columns */}
-        <div className="hidden md:block bg-foreground h-full w-full relative origin-bottom transform-gpu" 
-             style={{ borderLeft: '1px solid #111' }}
-             ref={(el) => { if (el) columnsRef.current[3] = el; }} 
-        />
-        <div className="hidden md:block bg-foreground h-full w-full relative origin-bottom transform-gpu" 
-             style={{ borderLeft: '1px solid #111' }}
-             ref={(el) => { if (el) columnsRef.current[4] = el; }} 
-        />
       </div>
     </div>
   );
