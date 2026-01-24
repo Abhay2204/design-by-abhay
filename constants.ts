@@ -70,5 +70,12 @@ export const PROJECTS: Project[] = [
     category: "PORTFOLIO",
     videoId: "XzJxW7SAVm4",
     websiteUrl: "https://neo-brutalist-portfolio-pearl.vercel.app/"
+  },
+  {
+    id: 11,
+    title: "BRUTALIST MINIMALISM PORTFOLIO",
+    category: "PORTFOLIO",
+    videoId: "6MWzVEWYK7Y",
+    websiteUrl: "https://brutalist-minimalism-portfolio.vercel.app/"
   }
 ];
