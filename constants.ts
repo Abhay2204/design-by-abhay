@@ -56,5 +56,19 @@ export const PROJECTS: Project[] = [
     category: "UI/UX",
     videoId: "ge9iTbVius0",
     websiteUrl: "https://technova-nu.vercel.app/"
+  },
+  {
+    id: 9,
+    title: "UI/UX PORTFOLIO 1",
+    category: "PORTFOLIO",
+    videoId: "z0kL9d3Hv4c",
+    websiteUrl: "https://uiux-portfolio-design-1.vercel.app/"
+  },
+  {
+    id: 10,
+    title: "NEO BRUTALIST STYLE PORTFOLIO",
+    category: "PORTFOLIO",
+    videoId: "XzJxW7SAVm4",
+    websiteUrl: "https://neo-brutalist-portfolio-pearl.vercel.app/"
   }
 ];
