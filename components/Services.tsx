@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 
 const SERVICES = [
   { id: 1, title: 'Brand Strategy', desc: 'Positioning, Voice, Identity' },
-  { id: 2, title: 'Art Direction', desc: 'Photography, Video, Motion' },
+  { id: 2, title: 'Cinematography', desc: 'Photography, Video, Motion' },
   { id: 3, title: 'Web Design', desc: 'UI/UX, Prototyping, Systems' },
   { id: 4, title: 'Development', desc: 'React, Next.js, WebGL' },
 ];
