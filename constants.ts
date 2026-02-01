@@ -77,5 +77,12 @@ export const PROJECTS: Project[] = [
     category: "PORTFOLIO",
     videoId: "6MWzVEWYK7Y",
     websiteUrl: "https://brutalist-minimalism-portfolio.vercel.app/"
+  },
+  {
+    id: 12,
+    title: "INFERNO I300 CONCEPT HEADPHONE",
+    category: "UI/UX",
+    videoId: "Sc-MOqQGFB4",
+    websiteUrl: "https://inferno-i-300.vercel.app/"
   }
 ];
