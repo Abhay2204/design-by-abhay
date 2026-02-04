@@ -90,7 +90,7 @@ const Hero: React.FC = () => {
       <div className="absolute bottom-12 w-full px-8 flex justify-between items-end text-white mix-blend-difference z-30">
         <div className="flex flex-col gap-1">
           <span className="font-mono text-xs uppercase tracking-widest opacity-60">Located in</span>
-          <span className="font-sans text-sm font-medium">Maharashtra, India</span>
+          <span className="font-sans text-sm font-medium">Chandrapur, Maharashtra, India</span>
         </div>
         <div className="flex flex-col gap-1 text-right">
           <span className="font-mono text-xs uppercase tracking-widest opacity-60">Scroll to Explore</span>

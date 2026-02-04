@@ -70,13 +70,13 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
         className="absolute bottom-12 right-12 z-10 text-black flex flex-col items-end"
       >
         <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest mb-2 opacity-70">
-          Design by
+          Bit Buddies Studio
         </p>
         <h1 className="font-crazy text-5xl md:text-7xl lg:text-8xl font-normal tracking-normal mb-3">
-          Abhay Mallick
+          Bit Buddies
         </h1>
         <p className="font-sans text-xs md:text-sm tracking-wide opacity-60">
-          Full Stack || UI/UX Developer
+          bitbuddiesstudio@gmail.com
         </p>
       </div>
 

@@ -55,10 +55,14 @@ const Footer: React.FC = () => {
           <p className="font-display text-4xl md:text-5xl lg:text-6xl uppercase text-white leading-[0.9] mb-8 max-w-2xl">
             Have a project in mind? Let's build something extraordinary.
           </p>
-          <div>
-            <a href="mailto:hello@designbydylan.com" className="inline-block border border-white/20 rounded-full px-8 py-4 text-white hover:bg-white hover:text-black transition-colors duration-300 font-mono text-sm uppercase tracking-widest">
+          <div className="flex flex-col gap-4">
+            <a href="mailto:bitbuddiesstudio@gmail.com" className="inline-block border border-white/20 rounded-full px-8 py-4 text-white hover:bg-white hover:text-black transition-colors duration-300 font-mono text-sm uppercase tracking-widest w-fit">
               Get in touch
             </a>
+            <div className="flex flex-col gap-2 font-sans text-sm text-white/70">
+              <a href="mailto:bitbuddiesstudio@gmail.com" className="hover:text-white transition-colors">bitbuddiesstudio@gmail.com</a>
+              <a href="https://wa.me/918421822204" className="hover:text-white transition-colors">WhatsApp: +91 84218 22204</a>
+            </div>
           </div>
         </div>
       </div>
@@ -68,10 +72,10 @@ const Footer: React.FC = () => {
       <div className="w-full overflow-hidden py-20 mt-12 md:mt-0">
         <div ref={sliderRef} className="flex whitespace-nowrap w-fit">
           <h2 className="font-display text-[18vw] leading-[0.8] text-white/10 pr-12">
-            DESIGN BY ABHAY ||
+            BIT BUDDIES STUDIO ||
           </h2>
           <h2 className="font-display text-[18vw] leading-[0.8] text-white/10 pr-12">
-            DESIGN BY ABHAY ||
+            BIT BUDDIES STUDIO ||
           </h2>
         </div>
       </div>
@@ -79,10 +83,10 @@ const Footer: React.FC = () => {
       {/* Bottom Bar */}
       <div className="w-[90%] mx-auto flex justify-between items-end border-t border-white/10 pt-6">
         <div className="flex flex-col md:flex-row gap-4 font-mono text-xs text-white/40 uppercase">
-          <span>Local time: {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+          <span>Chandrapur, Maharashtra, India</span>
         </div>
         <div className="font-mono text-xs text-white/40 uppercase">
-          &copy; 2026 Design by Abhay
+          &copy; 2026 Bit Buddies Studio
         </div>
       </div>
     </footer>
